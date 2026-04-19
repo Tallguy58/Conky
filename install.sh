@@ -183,7 +183,7 @@ ${color}${font Arial:size=7}${execi 5 tail -n2 /var/log/syslog | fold -s -w70 }$
 ]]
 EOF
 cat <<EOF > /home/$currentuser/.config/autostart/conky.desktop
-[Desktop Entry]'>/home/$currentuser/.config/autostart/conky.desktop
+[Desktop Entry]
 Type=Application
 Exec=/usr/bin/conky -d
 X-GNOME-Autostart-enabled=true
