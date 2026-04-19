@@ -182,15 +182,17 @@ ${color ddaa00}System Log Messages
 ${color}${font Arial:size=7}${execi 5 tail -n2 /var/log/syslog | fold -s -w70 }$font
 ]]
 EOF
-echo -e '[Desktop Entry]'>/home/$currentuser/.config/autostart/conky.desktop
-echo -e 'Type=Application'>>/home/$currentuser/.config/autostart/conky.desktop
-echo -e 'Exec=/usr/bin/conky -d'>>/home/$currentuser/.config/autostart/conky.desktop
-echo -e 'X-GNOME-Autostart-enabled=true'>>/home/$currentuser/.config/autostart/conky.desktop
-echo -e 'NoDisplay=false'>>/home/$currentuser/.config/autostart/conky.desktop
-echo -e 'Hidden=false'>>/home/$currentuser/.config/autostart/conky.desktop
-echo -e 'Name[en_AU]=Conky'>>/home/$currentuser/.config/autostart/conky.desktop
-echo -e 'Comment[en_AU]=System information tool'>>/home/$currentuser/.config/autostart/conky.desktop
-echo -e 'X-GNOME-Autostart-Delay=5'>>/home/$currentuser/.config/autostart/conky.desktop
+cat <<EOF > /home/$currentuser/.config/autostart/conky.desktop
+[Desktop Entry]'>/home/$currentuser/.config/autostart/conky.desktop
+Type=Application
+Exec=/usr/bin/conky -d
+X-GNOME-Autostart-enabled=true
+NoDisplay=false
+Hidden=false
+Name[en_AU]=Conky
+Comment[en_AU]=System information tool
+X-GNOME-Autostart-Delay=5
+EOF
 ## HDSentinel
 wget -q -O /tmp/hdsentinel.zip https://www.hdsentinel.com/hdslin/hdsentinel-020c-x64.zip
 unzip -oq /tmp/hdsentinel.zip -d /tmp
