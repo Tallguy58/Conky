@@ -52,7 +52,7 @@ function get-conky() {
 echo -e '\033[1;33mInstalling \033[1;34mConky\033[0m'
 apt-get -y -qq install conky-all >/dev/null
 apt-get -y -qq install lsscsi >/dev/null
-cat <<EOF > /home/$currentuser/.conkyrc
+cat <<'EOF' > /home/$currentuser/.conkyrc
 -- vim: ts=4 sw=4 noet ai cindent syntax=lua
 --[[
 Conky, a system monitor, based on torsmo
@@ -182,7 +182,7 @@ ${color ddaa00}System Log Messages
 ${color}${font Arial:size=7}${execi 5 tail -n2 /var/log/syslog | fold -s -w70 }$font
 ]]
 EOF
-cat <<EOF > /home/$currentuser/.config/autostart/conky.desktop
+cat <<'EOF' > /home/$currentuser/.config/autostart/conky.desktop
 [Desktop Entry]
 Type=Application
 Exec=/usr/bin/conky -d
